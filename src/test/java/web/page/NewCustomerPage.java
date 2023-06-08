@@ -38,6 +38,10 @@ public class NewCustomerPage extends BasePage {
     private WebElement customerRegisteredTxt;
     @FindBy(xpath = "//td[text()='Customer ID']/following-sibling::td")
     private WebElement customerId;
+    @FindBy(xpath = "//*[text()='New Account']")
+    private WebElement newAccountPageBtn;
+    @FindBy(xpath = "//*[text()='Add new account form']")
+    private WebElement newAccountPageTitle;
 
     public void createNewCustomer() {
         customerNameField.sendKeys(faker.name().firstName());
@@ -60,5 +64,10 @@ public class NewCustomerPage extends BasePage {
 
     public String getCustomerId() {
         return customerId.getText();
+    }
+
+    public void navigateToNewAccountPage(){
+        newAccountPageBtn.click();
+        waitForPageReady(newAccountPageTitle);
     }
 }

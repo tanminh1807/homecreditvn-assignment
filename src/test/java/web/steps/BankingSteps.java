@@ -2,6 +2,7 @@ package web.steps;
 
 import core._base.BaseStep;
 import io.cucumber.java8.En;
+import web.page.AccountPage;
 import web.page.HomePage;
 import web.page.ManagerPage;
 import web.page.NewCustomerPage;
@@ -30,8 +31,27 @@ public class BankingSteps extends BaseStep implements En {
             on(NewCustomerPage.class).assertCustomerRegisteredSuccessfully("Customer Registered Successfully!!!");
             String customerId = on(NewCustomerPage.class).getCustomerId();
             save(String.class, customerId);
+        });
+
+        When("user navigates to New Account page", () -> {
+            on(NewCustomerPage.class).navigateToNewAccountPage();
+        });
+
+        And("user creates new account", () -> {
+            String customerId = load(String.class);
+            on(AccountPage.class).createNewAccount(customerId);
+        });
+
+        Then("new account should be created successfully", () -> {
+            on(AccountPage.class).assertAccountGeneratedSuccessfully("Account Generated Successfully!!!");
+            String accountId = on(AccountPage.class).getAccountId();
+            save(String.class, accountId);
 
             System.out.println("debug");
+        });
+
+        When("user navigates to Deposit page", () -> {
+            on(AccountPage.class).navigateToDepositPage();
         });
     }
 }

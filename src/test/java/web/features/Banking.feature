@@ -7,3 +7,7 @@ Feature: Demo Banking System
     And user navigates to New Customer page
     When user creates new customer
     Then new customer should be created successfully
+    When user navigates to New Account page
+    And user creates new account
+    Then new account should be created successfully
+    When user navigates to Deposit page
