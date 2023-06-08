@@ -17,12 +17,14 @@ public class Driver {
             case CHROME:
                 WebDriverManager.chromedriver().setup();
                 ChromeOptions chromeOptions = new ChromeOptions();
+                chromeOptions.addArguments("--start-maximized");
                 chromeOptions.setHeadless(headlessMode);
                 driver = new ChromeDriver(chromeOptions);
                 break;
             case FIREFOX:
                 WebDriverManager.firefoxdriver().setup();
                 FirefoxOptions firefoxOptions = new FirefoxOptions();
+                firefoxOptions.addArguments("-fullscreen");
                 firefoxOptions.setHeadless(headlessMode);
                 driver = new FirefoxDriver(firefoxOptions);
                 break;

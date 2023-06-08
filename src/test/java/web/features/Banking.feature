@@ -11,3 +11,4 @@ Feature: Demo Banking System
     And user creates new account
     Then new account should be created successfully
     When user navigates to Deposit page
+    Then user deposits to new created account

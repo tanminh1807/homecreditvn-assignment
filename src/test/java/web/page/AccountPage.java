@@ -26,7 +26,6 @@ public class AccountPage extends BasePage {
     private WebElement accountGeneratedTxt;
     @FindBy(xpath = "//td[text()='Account ID']/following-sibling::td")
     private WebElement accountId;
-    ///
     @FindBy(xpath = "//*[text()='Deposit']")
     private WebElement depositPageBtn;
     @FindBy(xpath = "//*[text()='Amount Deposit Form']")

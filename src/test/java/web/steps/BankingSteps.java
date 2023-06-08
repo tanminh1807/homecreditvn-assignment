@@ -2,10 +2,7 @@ package web.steps;
 
 import core._base.BaseStep;
 import io.cucumber.java8.En;
-import web.page.AccountPage;
-import web.page.HomePage;
-import web.page.ManagerPage;
-import web.page.NewCustomerPage;
+import web.page.*;
 
 public class BankingSteps extends BaseStep implements En {
     public BankingSteps() {
@@ -15,8 +12,8 @@ public class BankingSteps extends BaseStep implements En {
         });
 
         And("user logins as manager successfully", () -> {
-            on(HomePage.class).login("mngr507948", "qYmagut");
-            on(ManagerPage.class).assertManagerId("mngr507948");
+            on(HomePage.class).login("mngr507990", "AvAjuqe");
+            on(ManagerPage.class).assertManagerId("mngr507990");
         });
 
         And("user navigates to New Customer page", () -> {
@@ -46,12 +43,15 @@ public class BankingSteps extends BaseStep implements En {
             on(AccountPage.class).assertAccountGeneratedSuccessfully("Account Generated Successfully!!!");
             String accountId = on(AccountPage.class).getAccountId();
             save(String.class, accountId);
-
-            System.out.println("debug");
         });
 
         When("user navigates to Deposit page", () -> {
             on(AccountPage.class).navigateToDepositPage();
+        });
+
+        Then("user deposits to new created account", () -> {
+            String accountId = load(String.class);
+            on(DepositPage.class).depositToAccount(accountId);
         });
     }
 }
