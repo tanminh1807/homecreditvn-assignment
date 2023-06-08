@@ -6,7 +6,7 @@ There is 1 cucumber feature which represents for the required testcase: Banking.
 
 To run this feature, please add `tags = {"@web.banking"}` in **WebTestRunner.java**.
 
-> **Note:** Automation can also be run without opening a real browser (tests will be run in the background). To do that, please set `headless_mode = true` in **browser.properties**
+> **Note:** This UI automation test can NOT be run without opening a real browser. So make sure to set `headless = false` in **browser.properties**
 
 ## To run the code:
 - Using IntelliJ IDEA: Clone the project and import to IntelliJ. You may also need to install Cucumber and Gherkin for Java plugin. Run WebTestRunner.java as TestNG class
