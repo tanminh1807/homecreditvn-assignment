@@ -22,9 +22,9 @@ public class HomePage extends BasePage {
         waitForPageReady(logo);
     }
 
-    public void login() {
-        userIdField.sendKeys("mngr507948");
-        passwordField.sendKeys("qYmagut");
+    public void login(String username, String password) {
+        userIdField.sendKeys(username);
+        passwordField.sendKeys(password);
         loginBtn.click();
     }
 }

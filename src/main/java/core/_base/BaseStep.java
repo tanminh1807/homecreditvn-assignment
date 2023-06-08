@@ -26,4 +26,15 @@ public class BaseStep {
         }
         return pageObject;
     }
+
+    protected <T> void save(Class<T> className, T instance) {
+        dataSaver.put(className.getCanonicalName(), instance);
+    }
+
+    protected <T> T load(Class<T> className) {
+        if (dataSaver.get(className.getCanonicalName()) == null) {
+            throw new RuntimeException(String.format("Data of %s class has NOT saved yet", className.getCanonicalName()));
+        }
+        return (T) dataSaver.get(className.getCanonicalName());
+    }
 }

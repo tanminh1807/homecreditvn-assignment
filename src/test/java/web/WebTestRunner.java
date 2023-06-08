@@ -7,6 +7,6 @@ import io.cucumber.testng.CucumberOptions;
         features = {"src/test/java/web/features"},
         plugin = {"pretty", "json:target/cucumber/cucumber.json"},
         glue = {"web.steps"},
-        tags = "@web.search")
+        tags = "@web.banking")
 public class WebTestRunner extends BaseRunner {
 }
